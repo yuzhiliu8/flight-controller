@@ -1,0 +1,13 @@
+.cache
+build/
+
+# Track only STM32HAL.ioc and Core/Src/main.c; ignore everything else CubeMX generates
+STM32HAL/*
+!STM32HAL/STM32HAL.ioc
+!STM32HAL/Core
+STM32HAL/Core/*
+!STM32HAL/Core/Src
+STM32HAL/Core/Src/*
+!STM32HAL/Core/Src/main.c
+
+compile_commands.json
