@@ -37,6 +37,7 @@ string(REPLACE
 
 # Enable CMake support for ASM, C, and C++ languages
 enable_language(C CXX ASM)
+set(CMAKE_CXX_STANDARD 17)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
@@ -49,16 +50,32 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
 )
 
+
+
+file(GLOB_RECURSE SRC_FILES
+    CONFIGURE_DEPENDS
+    src/drivers/*.cpp
+    src/wrappers/*.cpp
+    src/logging/*.cpp
+)
+
+
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     src/fc_main.cpp
-    src/drivers/magnetometer_i2c.cpp
+    ${SRC_FILES}
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     src
     src/drivers
+    src/wrappers
+    src/logging
+    STM32HAL/Middlewares/Third_Party/FreeRTOS/Source/include
+    STM32HAL/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2
+    STM32HAL/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
+    STM32HAL/Core/Inc
 )
 
 # Add project symbols (macros)
