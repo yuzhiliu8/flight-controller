@@ -8,6 +8,5 @@ STM32HAL/*
 STM32HAL/Core/*
 !STM32HAL/Core/Src
 STM32HAL/Core/Src/*
-!STM32HAL/Core/Src/main.c
 
 compile_commands.json

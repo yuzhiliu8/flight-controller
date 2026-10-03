@@ -1,2 +1,2 @@
-// HMC 5883L Magnetometer I2C driver
-
+// QMC5883P Magnetometer I2C driver
+#include "magnetometer_i2c.hpp"
